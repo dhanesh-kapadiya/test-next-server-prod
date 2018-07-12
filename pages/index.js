@@ -15,7 +15,9 @@ export default class Index extends React.Component {
       .then(res => res.json())
       .then(data => {
         console.log(data)
-        this.setState({ status: 'Got it ! Check console.' })
+        this.setState({ status: 'Got it ! Check console.' }, () => {
+          setTimeout(() => this.setState({ status: 'Click me again !' }), 2000)
+        })
       })
   }
 
