@@ -14,6 +14,10 @@ app.prepare()
       res.send(JSON.stringify({ 'hello': 'world' }))
     })
 
+    server.get('/posts/:id', (req, res) => {	
+      return app.render(req, res, '/posts', { id: req.params.id })	
+    })
+  
     server.get('*', (req, res) => {
       return handle(req, res)
     })
